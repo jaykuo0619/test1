@@ -1,0 +1,219 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\f0\fs24 \cf0 {{\NeXTGraphic remux-3 (verschoben).tiff \width2560 \height2560 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+\cf0 \
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\fs66 \cf0 remux\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\fs24 \cf0 A simple remux/recode app based on FFmpeg.\
+Written by Martin Tessarek\
+Requires OS X 10.8 and is x86_64 only now.\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+
+\b \ul Usage with Single window
+\b0 \ulnone \
+Open the video file you want to remux to another container format, by selecting Open from the File menu or dropping it on the application icon.\
+Multiple files can be dropped on the window for muxing.\
+More files can be added by holding down the option key while dropping.\
+\
+A list with the tracks will appear, where you can de/select the tracks over the On checkbox and choose a convert option if available.\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Bildschirmfoto 2010-10-29 um 19.07.21.png \width9540 \height2080 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+Select the desired new container format from the popup button in left upper corner of the window.\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic format button.png \width1980 \height1000 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+The track order can be rearranged by dragging and tracks can be duplicated by option-dragging.\
+\
+You can set the filename via the Save as button/menu or by typing in the textfield and pressing enter.\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Bildschirmfoto 2010-10-29 um 19.15.51.png \width9580 \height640 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+To start the remux process press the Go button.\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Bildschirmfoto 2010-10-29 um 19.17.52.png \width1520 \height680 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+The Go button will turn into Stop which will stop the remux process if you press it.\
+\
+If everything is fine the progress bar will start moving and the window title will display a time remaining.\
+If not, you will hear a beep and the error reported by FFmpeg will be shown.\
+\
+
+\b \ul What if FFmpeg reports an error?
+\b0 \ulnone \
+FFmpeg didn\'92t like your input file or the options you selected.\
+There can be several reason for that:\
+- subtitles can cause problems, so try deselecting them\
+- not all stream types are allowed in some container\
+- could be a bug in FFmpeg or in remux\
+and the list goes on\'85\
+\
+
+\b \ul Usage with batch processing
+\b0 \ulnone \
+Add files or folders by dropping on top job window or pressing the plus button.\
+Each one will create a job.\
+Holding down the option key will merge all dropped files into one job.\
+Drag files to mux into a job below in the track window with the job selected.\
+The minus button will remove the selected files or if no file is selected, it removes all jobs that finished with OK.\
+Select a file by clicking or pressing the arrow keys and you will see the details.\
+If the target file exists at the destination folder a warning will be shown and the job name will turn red.\
+Be careful with overwriting, if you overwrite the file you want to read from it will be destroyed.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Bildschirmfoto 2010-12-01 um 12.52.36.png \width9420 \height400 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+Select the container format for all files with the upper button.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Bildschirmfoto 2010-12-01 um 12.43.30.png \width9740 \height620 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+Override that setting for a single file with the lower button.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Bildschirmfoto 2010-12-01 um 12.45.11.png \width9640 \height680 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+Holding down the option key while selecting a track option copies it to all jobs.\
+\
+Once you have set up all files press Start to begin.\
+Press Stop to end all processing.\
+\
+Under Status you will see if the job went well or an error occurred.\
+\
+
+\b \ul Known Issues
+\b0 \ulnone \
+- divx/xvid mpeg4 remuxed to mp4/m4v may stutter on playback in QT, seems ok in VLC (but that is FFmpeg based also ;))\
+- SRT files in UTF-16 encoding are not opened or falsely seen as MP3. Change the encoding to UTF-8 in a text editor.\
+- you can\'92t encode multiple tracks at once with the aac_at presets, ffmpeg seems to not take the parameter for both tracks.\
+\
+
+\b \ul What does Unknown stand for?
+\b0 \ulnone \
+It's just a placeholder for tracks that aren't processed anyway.\
+\
+
+\b \ul It seems to be stuck and the system is sluggish?
+\b0 \ulnone \
+On some occasions FFmpeg does the encoding in memory and writes the file out later. Depending on your RAM configuration this can lead to swapping and slowing down the system.\
+\
+
+\b \ul You want video encoding also?
+\b0 \ulnone \
+remux looks for a locally installed version of FFmpeg in /opt/local/bin first and then in /usr/local/bin and uses that instead of the built-in.\
+If that version of FFmpeg is linked against libx264 there will be a reencoding menu for the video tracks.\
+The presets need some tweaking though ;)\
+\
+
+\b \ul You don't like the presets?
+\b0 \ulnone \
+If you know FFmpeg parameters and can handle the Property List Editor that will be no problem by editing the com.mt.remux.plist.\
+\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\partightenfactor0
+
+\b \cf0 \ul \ulc0 Use at your own risk!
+\b0 \ulnone \
+This is Freeware!\
+I take no responsibility for any damage caused by this application.\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+
+\b \ul Version history
+\b0 \ulnone \
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs20 \cf0 1.4	Updated internal FFmpeg libs to newer API to support HEVC.\
+	Dropped PPC, i386 and older OS X versions support due to Xcode SDK	restrictions and newer FFmpeg compilation issues.\
+	Updated FFmpeg to 3.4.2\
+	Added new aac_at presets which use the Apple AAC encoder.\
+	Added editing the language on audio and subtitle tracks.\
+1.3.2	Updated internal FFmpeg libs to newer API to support HEVC.\
+	Updated FFmpeg to 3.3.3 without audiotoolbox\
+1.3.1	Fixed AVI timestamp error.\
+1.3	Added the ability to drop multiple files and mux in other files in \
+	the Single window by holding down the option key and without in 	Batch track window table.\
+	Fixed subtitle handling and reenabled subtitle tracks by default.\
+	Automatically deselect incompatible subtitles if target is MP4/M4V.\
+	Updated FFmpeg to 2.3\
+1.2	Updated FFmpeg to 1.2\
+	Added new ALAC (Apple Lossless Preset)\
+1.1.7	Added a dialog in the Single window preventing you to overwrite the 	same file to read from.\
+	Check external FFmpeg binary for more options.\
+	Textfield editing takes changes at once.\
+	Updated FFmpeg to 0.8.10\
+1.1.6	Fixed a crash with FFmpeg not finding the codec id in .mov\
+	Disabled subtitle tracks by default since FFmpeg does not copy them 	in most cases\
+	File attributes are copied\
+	Check external FFmpeg binary for options\
+	Updated FFmpeg to git 707e861\
+1.1.5	Audio tracks show channel and bitrate info\
+	Added "option key selected" track options copy to all in Batch.\
+	Unified the windows into a single one with tab views.\
+	Updated FFmpeg to r26363 which should fix the monotone timestamp 	error with vfr video tracks.\
+1.1.4	Fixed a bug in FFmpeg with m4v/mp4 and audio track selection in 	Quicktime and updated to FFmpeg r26278\
+1.1.3	Fixed track reordering in Batch window\
+	h264 shows the profile@level\
+	Added option-drag track copy\
+1.1.2	h264 should now work with ts\
+	Updated to FFmpeg r26052 and hopefully fixed FFmpeg's 1000fps bug 	with mkv\
+1.1.1	Fixed a crash on launch with 10.5\
+1.1	Added batch processing\
+	Fixed a crash when opening a file over the open menu or by dropping 	on the app icon\
+	Fixed odd height for video scaling\
+	Added AAC 6ch 128k preset\
+1.0	Initial release
+\f0\fs24 \
+\
+\
+remux\
+Copyright 2010-2018 Martin Tessarek\
+\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\partightenfactor0
+\cf0 This is Freeware! There are no fees for using this software.\
+\
+Send comments, suggestions, bug-reports etc. to\
+martin.tessarek+remux@gmail.com\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\partightenfactor0
+
+\b \cf0 \
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\b0 \cf0 \
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\partightenfactor0
+\cf0 This software uses libraries from the FFmpeg project under the LGPLv2.1\
+Copyright 2000-2018 the FFmpeg developers\
+http://www.ffmpeg.org\
+\pard\tx760\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+Icon by Barry Mieny\
+Licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.\
+http://barrymieny.deviantart.com/gallery/#/d1qsny2\
+\
+Finish sound from http://www.soundjay.com/\
+\
+remux is free, but since some people asked about it, feel free to donate.\
+}
